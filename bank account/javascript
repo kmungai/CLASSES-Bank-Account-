@@ -1,0 +1,48 @@
+class BankAccount {
+  constructor(name, balance) {
+    this.name = name;
+    this.balance = balance;
+  }
+
+  deposit(amount) {
+    if (amount > 0) {
+      this.balance += amount;
+      console.log(
+        `Amount successfully deposited. New balance is ${this.balance}`
+      );
+    } else {
+      console.log(`Transaction Failed. Amount must be a positive number`);
+    }
+  }
+
+  withdraw(amount) {
+    if (amount > 0 && this.balance >= amount) {
+      this.balance -= amount;
+      console.log(
+        `Withdrawal successsful. Your new balance is ${this.balance}`
+      );
+    } else {
+      console.log(
+        `Withdrawal failed. Amount must be a positive number and balance (${this.balance} must be greater than withdrawal amount`
+      );
+    }
+  }
+
+  checkbalance() {
+    console.log(`Name: ${this.name} your balance is ${this.balance}`);
+    return this.balance;
+    Console.log(`Do you want to do any other transaction?`);
+  }
+}
+
+const myAccount = new BankAccount("Kelvin", 100000);
+
+myAccount.checkbalance();
+myAccount.deposit(50000);
+myAccount.checkbalance();
+
+myAccount.withdraw(1000);
+
+myAccount.checkbalance();
+
+myAccount.withdraw(10000000000);
